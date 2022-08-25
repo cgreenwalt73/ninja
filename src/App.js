@@ -29,14 +29,32 @@ class Ninja {
   }
 }
 
+class Sensei extends Ninja {
+  constructor(name) {
+    super(name);
+    this.health=200;
+    this.speed=10;
+    this.strength=10;
+    this.wisdom=10;
+  }
+
+  speakWisdom() {
+    this.drinkSake();
+    console.log('While it is always best to believe in oneself, a little help from others can be a great blessing.')
+  }
+}
+
 const naruto = new Ninja("Naruto", 100) 
+const kakashi = new Sensei("Kakashi") 
 
 function App() {
   return (
     <div className="App">
       {naruto.drinkSake()}
       {naruto.showStats()}
-      {naruto.sayName()}
+      {kakashi.showStats()}
+      {kakashi.drinkSake()}
+      {kakashi.showStats()}
     </div>
   );
 }
