@@ -1,23 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+
+class Ninja {
+
+  constructor(name, health) {
+    this.name=name;
+    this.health=health;
+    this.speed=3;
+    this.strength=3;
+  }
+
+  sayName() {
+    console.log(this.name);
+  }
+
+  showStats() {
+    return(
+      <div>
+        <h1>Name: {this.name}</h1>
+        <p>Strength: {this.strength}</p>
+        <p>Speed: {this.speed}</p>
+        <p>Health: {this.health}</p>
+      </div>
+    )
+  }
+
+  drinkSake() {
+    this.health += 10;
+  }
+}
+
+const naruto = new Ninja("Naruto", 100) 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {naruto.drinkSake()}
+      {naruto.showStats()}
+      {naruto.sayName()}
     </div>
   );
 }
